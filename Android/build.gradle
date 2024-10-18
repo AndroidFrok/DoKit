@@ -14,8 +14,9 @@ buildscript {
 
     def gradlePluginVersion = rootProject.ext.android["agp_module_verson"]
 
-
+    apply from: 'maven.gradle'
     repositories {
+        addCommonMaven(repositories)
         google()
         mavenCentral()
         jcenter()
@@ -62,6 +63,7 @@ apply from: "./config.gradle"
 allprojects {
     def isRootProject = "Dokit-Android".equals(project.name)
     repositories {
+        addCommonMaven(repositories)
         google()
         mavenCentral()
         jcenter()
